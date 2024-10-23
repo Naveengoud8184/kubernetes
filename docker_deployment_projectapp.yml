@@ -1,0 +1,6 @@
+---
+- hosts: docker
+
+  tasks:
+  - name: create container
+    command: docker run -d --name project-server -p 8081:8080 dockernaveen04/projectapp

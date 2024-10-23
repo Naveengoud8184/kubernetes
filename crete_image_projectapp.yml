@@ -1,0 +1,14 @@
+---
+- hosts: ansible
+
+  tasks:
+  - name: create docker image
+    command: docker build -t projectapp:latest .
+    args:
+     chdir: /opt/docker
+    
+  - name: create tag to push image on to dockerhub
+    command: docker tag projectapp dockernaveen04/projectapp:latest
+    
+  - name: push docker image
+    command: docker push dockernaveen04/projectapp:latest
